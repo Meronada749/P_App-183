@@ -1,0 +1,20 @@
+git clone git@github.com:jonathanMelly/pm2etml-intranet.git
+
+composer install
+
+npm install
+
+php artisan key:generate --ansi
+
+npm run dev
+
+ ./vendor/laravel/sail/runtimes/8.4
+add restart:always in mysql
+set WWWUSER=1000
+set WWWGROUP=1000
+
+php artisan migrate:fresh --seed
+
+mysql -p
+
+install composer inside docker if u wanna dont have composer in ur pc

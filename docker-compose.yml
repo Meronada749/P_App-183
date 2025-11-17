@@ -1,12 +1,12 @@
 # For more information: https://laravel.com/docs/sail
-version: '3'
+
 services:
     laravel.test:
         build:
-            context: ./vendor/laravel/sail/runtimes/8.1
+            context: ./vendor/laravel/sail/runtimes/8.4
             dockerfile: Dockerfile
             args:
-                WWWGROUP: '${WWWGROUP}'
+                WWWGROUP: 1000
         image: sail-8.1/app
         extra_hosts:
             - 'host.docker.internal:host-gateway'
@@ -26,6 +26,7 @@ services:
             - selenium
     mysql:
         image: 'mariadb:10.3.34'
+        restart: always
         ports:
             - '${FORWARD_DB_PORT:-3306}:3306'
         environment:
